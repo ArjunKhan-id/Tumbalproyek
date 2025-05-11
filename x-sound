@@ -1,0 +1,4 @@
+<button onclick="document.getElementById('musik').play()">Putar Musik</button>
+<audio id="musik" loop>
+  <source src="the shade.mp3" type="audio/mpeg">
+</audio>
