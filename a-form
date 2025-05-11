@@ -90,23 +90,22 @@
         </div>
     </div>
 
-    <audio id="myAudio" src="the shade.mp3"></audio>
+    <audio id="myAudio" src="the shade.mp3/the shade.mp3"></audio>
     <button id="playButton">Nyalakan Lagu</button>
 
     <script>
         const lines = document.querySelectorAll('.line');
         let currentLine = 0;
+        let intervalId;
 
         function showNextLine() {
             if (currentLine < lines.length) {
                 lines[currentLine].classList.add('visible');
                 currentLine++;
-                setTimeout(showNextLine, 3000); // Tampilkan setiap 3 detik
+            } else {
+                clearInterval(intervalId); // Stop when all lines are shown
             }
         }
-
-        // Mulai menampilkan lirik
-        showNextLine();
 
         // Audio control
         const audio = document.getElementById('myAudio');
@@ -116,12 +115,10 @@
             if (audio.paused) {
                 audio.play();
                 playButton.textContent = 'Hentikan Lagu';
+                intervalId = setInterval(showNextLine, 3000); // Tampilkan setiap 3 detik
             } else {
                 audio.pause();
                 playButton.textContent = 'Nyalakan Lagu';
+                clearInterval(intervalId); // Stop showing lyrics
             }
-        });
-    </script>
-
-</body>
-</html>
+       
