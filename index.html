@@ -1,144 +1,95 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <title>Kuis STEM</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lirik Lagu The Shade</title>
     <style>
-        /* Reset */
-        * {
-            box-sizing: border-box;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
             margin: 0;
-            padding: 0;
-        }
-        body, html {
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #fff;
             overflow: hidden;
-            background: linear-gradient(135deg, #2980b9, #6dd5fa);
         }
-        
-        /* Container utama untuk kuis */
-        #quiz-container {
-            max-width: 350px;
-            width: 100%;
-            border-radius: 16px;
-            padding: 1.5rem;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            user-select: none;
-            height: 600px;
-        }
-        
-        h1 {
-            font-weight: 900;
-            letter-spacing: 1.4px;
-            margin: 0 0 1rem 0;
-            font-size: 1.9rem;
-            text-align: center;
-        }
-        
-        #question-number {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 0.3rem;
-            letter-spacing: 0.06em;
-        }
-        
-        #question-text {
-            font-weight: 700;
-            font-size: 1.3rem;
-            line-height: 1.4;
-            margin-bottom: 1rem;
-            user-select: none;
-            min-height: 70px;
-        }
-        
-        #answers {
-            display: flex;
-            flex-direction: column;
-            gap: 0.65rem;
-            flex-grow: 1;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-        
-        button.answer-btn {
-            background: #356ab9;
-            border: none;
+        .container {
+            max-width: 600px;
+            background: #fff;
+            padding: 30px;
             border-radius: 10px;
-            padding: 0.9rem 1rem;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: white;
-            cursor: pointer;
-            text-align: left;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            box-shadow: 0 4px 9px rgba(0,0,0,0.3);
-            transition: background-color 0.3s ease, transform 0.15s ease;
-        }
-        
-        button.answer-btn:hover:not(:disabled) {
-            background-color: #4a7cd3;
-        }
-        
-        button.answer-btn:active {
-            transform: scale(0.95);
-        }
-        
-        button.answer-btn[disabled] {
-            cursor: default;
-        }
-        
-        .letter {
-            background: #1976d2;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            font-weight: 900;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-            flex-shrink: 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-        }
-        
-        #feedback {
-            font-weight: 700;
-            font-size: 1.1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-top: 1rem;
-            min-height: 2rem;
-            letter-spacing: 0.04em;
-            user-select: none;
         }
-        
-        #score-slide {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            user-select: none;
+        h1 {
+            color: #4a4a4a;
+            margin-bottom: 20px;
         }
-        
-        #final-score {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            letter-spacing: 0.04em;
+        .lyrics {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            opacity: 0;
+            transition: opacity 0.5s ease;
         }
-        
-        #restart-btn {
-            background: #ff7043;
-            border: none;
-            border-radius: 12px;
-            color: #fff;
-            font-weight: 700
+        .line {
+            margin: 10px 0;
+            display: none; /* Initially hidden */
+        }
+        .line.visible {
+            display: block; /* Show when visible */
+            opacity: 1; /* Fade in */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Lirik Lagu The Shade</h1>
+        <div class="lyrics">
+            <div class="line">[Verse 1]</div>
+            <div class="line">Lirik pertama dari lagu ini...</div>
+            <div class="line">Lirik kedua dari lagu ini...</div>
+            
+            <div class="line">[Chorus]</div>
+            <div class="line">Lirik chorus dari lagu ini...</div>
+            
+            <div class="line">[Verse 2]</div>
+            <div class="line">Lirik ketiga dari lagu ini...</div>
+            <div class="line">Lirik keempat dari lagu ini...</div>
+            
+            <div class="line">[Chorus]</div>
+            <div class="line">Lirik chorus dari lagu ini...</div>
+            
+            <div class="line">[Bridge]</div>
+            <div class="line">Lirik bridge dari lagu ini...</div>
+            
+            <div class="line">[Chorus]</div>
+            <div class="line">Lirik chorus dari lagu ini...</div>
+            
+            <div class="line">[Outro]</div>
+            <div class="line">Lirik penutup dari lagu ini...</div>
+        </div>
+    </div>
+
+    <script>
+        const lines = document.querySelectorAll('.line');
+        let currentLine = 0;
+
+        function showNextLine() {
+            if (currentLine < lines.length) {
+                lines[currentLine].classList.add('visible');
+                currentLine++;
+                setTimeout(showNextLine, 3000); // Tampilkan setiap 3 detik
+            }
+        }
+
+        // Mulai menampilkan lirik
+        showNextLine();
+    </script>
+
+</body>
+</html>
