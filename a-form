@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Daftar Akun Kuis STEM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            height: 100vh;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+        
+        /* Container utama */
+        #register-container {
+            width: 350px;
+            max-width: 95vw;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 28px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+            backdrop-filter: blur(8px);
+            margin: auto;
+            margin-top: 100px;
+        }
+        
+        h2 {
+            margin-bottom: 20px;
+            font-weight: 900;
+            font-size: 1.8rem;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            outline: none;
+            box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        
+        input::placeholder {
+            color: #dddbdd;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px 0;
+            font-weight: 700;
+            font-size: 1.15rem;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            background: #6c63ff;
+            color: white;
+            box-shadow: 0 8px 15px rgba(108,99,255,0.6);
+            transition: background-color 0.3s ease;
+        }
+        
+        button:disabled {
+            background: #a59fff;
+            cursor: not-allowed;
+        }
+        
+        button:hover:not(:disabled) {
+            background: #5248cc;
+        }
+        
+        #message {
+            color: #ff6961;
+            font-weight: 700;
+            min-height: 1.2rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        a {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+            color: #d3cfff;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        
+        /* Show Password */
+        .show-password {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .show-password input {
+            flex: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="register-container">
+        <h2>Daftar Akun</h2>
+        <div id="message" role="alert"></div>
+        <label for="username">Nama Pengguna</label>
+        <input type="text" id="username" placeholder="Masukkan nama pengguna" autocomplete="username" required />
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Masukkan email" autocomplete="email" required />
+        
+        <label for="password">Password</label>
+        <div class="show-password">
+            <input type="password" id="password" placeholder="Buat password (
