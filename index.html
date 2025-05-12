@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gambar dan Video</title>
+    <title>Orang Kulit Hitam Tak Kalah Manis Kaka</title>
     <style>
         body {
             display: flex;
@@ -15,53 +15,95 @@
             color: white;
             font-family: Arial, sans-serif;
         }
-        img, video {
+        img {
             max-width: 90%;
-            border: 2px solid #fff;
             border-radius: 10px;
-            display: none; /* Initially hide the image and video */
+            display: none; /* Initially hide the images */
+            animation: fadeInOut 3s ease-in-out forwards;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin-top: 20px;
-            cursor: pointer;
-            background-color: #6c63ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+        .flag {
+            font-size: 50px;
+            display: none; /* Initially hide the flags */
+            animation: fadeInOut 3s ease-in-out forwards;
         }
-        button:hover {
-            background-color: #5248cc;
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Selamat Datang!</h1>
-    <button id="next-button">Berikutnya</button>
+    <h1>Gambar dan Bendera</h1>
     
-    <img src="https://github.com/ArjunKhan-id/Tumbalproyek/images/ANWR7398.JPG" alt="Gambar" />
+    <img id="image1" src="https://github.com/ArjunKhan-id/Tumbalproyek/images/20250226_092134.heic" alt="Gambar 1" />
+    <img id="image2" src="https://github.com/ArjunKhan-id/Tumbalproyek/images/20250226_092432.heic" alt="Gambar 2" />
+    <img id="image3" src="https://github.com/ArjunKhan-id/Tumbalproyek/images/20250416_122518.heic" alt="Gambar 3" />
     
-    <button id="show-video-button" style="display: none;">Tampilkan Video</button>
-    
-    <video id="video" controls>
-        <source src="https://github.com/ArjunKhan-id/Tumbalproyek/videos/VID-20250512-WA0001.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div id="flag1" class="flag">🇵🇬</div>
+    <div id="flag2" class="flag">🇮🇱</div>
+    <div id="flag3" class="flag">🇮🇳</div>
+    <div id="flag4" class="flag">🇲🇾</div>
+    <div id="flag5" class="flag">🇧🇩</div>
 
     <script>
-        document.getElementById('next-button').addEventListener('click', function() {
-            // Show the image when the "Berikutnya" button is clicked
-            document.getElementById('image').style.display = 'block';
-            document.getElementById('show-video-button').style.display = 'block';
-        });
+        const images = [
+            document.getElementById('image1'),
+            document.getElementById('image2'),
+            document.getElementById('image3')
+        ];
+        
+        const flags = [
+            document.getElementById('flag1'),
+            document.getElementById('flag2'),
+            document.getElementById('flag3'),
+            document.getElementById('flag4'),
+            document.getElementById('flag5')
+        ];
 
-        document.getElementById('show-video-button').addEventListener('click', function() {
-            // Hide the image and show the video when the "Tampilkan Video" button is clicked
-            document.getElementById('image').style.display = 'none';
-            document.getElementById('video').style.display = 'block';
-        });
+        let currentImageIndex = 0;
+        let currentFlagIndex = 0;
+
+        function showNextImage() {
+            // Hide the current image
+            if (currentImageIndex > 0) {
+                images[currentImageIndex - 1].style.display = 'none';
+            }
+            // Show the next image
+            images[currentImageIndex].style.display = 'block';
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+
+        function showNextFlag() {
+            // Hide the current flag
+            if (currentFlagIndex > 0) {
+                flags[currentFlagIndex - 1].style.display = 'none';
+            }
+            // Show the next flag
+            flags[currentFlagIndex].style.display = 'block';
+            currentFlagIndex = (currentFlagIndex + 1) % flags.length;
+        }
+
+        function startAnimation() {
+            showNextImage();
+            showNextFlag();
+            setInterval(() => {
+                showNextImage();
+                showNextFlag();
+            }, 3000); // Change every 3 seconds
+        }
+
+        // Start the animation
+        startAnimation();
     </script>
 </body>
-    </html>
+</html>
