@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Contoh Gambar</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gambar dan Video</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1f3c88;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        img, video {
+            max-width: 90%;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            display: none; /* Initially hide the image and video */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #6c63ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #5248cc;
+        }
+    </style>
 </head>
 <body>
-    <h1>Keluarga Kecilllll</h1>
-    <img src="https://arjunkhan-id.github.io/Tumbalproyek/ANWR7398.JPG" alt="Deskripsi Gambar" width="1000">
+    <h1>Selamat Datang!</h1>
+    <button id="next-button">Berikutnya</button>
+    
+    <img id="image" src="https://github.com/ArjunKhan-id/Tumbalproyek/images/ANWR7398.JPG" alt="Gambar" />
+    
+    <button id="show-video-button" style="display: none;">Tampilkan Video</button>
+    
+    <video id="video" controls>
+        <source src="https://github.com/ArjunKhan-id/Tumbalproyek/videos/VID-20250512-WA0001.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        document.getElementById('next-button').addEventListener('click', function() {
+            // Show the image when the "Berikutnya" button is clicked
+            document.getElementById('image').style.display = 'block';
+            document.getElementById('show-video-button').style.display = 'block';
+        });
+
+        document.getElementById('show-video-button').addEventListener('click', function() {
+            // Hide the image and show the video when the "Tampilkan Video" button is clicked
+            document.getElementById('image').style.display = 'none';
+            document.getElementById('video').style.display = 'block';
+        });
+    </script>
 </body>
-</html>
+    </html>
